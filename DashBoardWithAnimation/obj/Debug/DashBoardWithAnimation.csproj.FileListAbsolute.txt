@@ -1,0 +1,15 @@
+D:\visual studio .net\DashBoardWithAnimation\bin\Debug\DashBoardWithAnimation.exe.config
+D:\visual studio .net\DashBoardWithAnimation\bin\Debug\DashBoardWithAnimation.exe
+D:\visual studio .net\DashBoardWithAnimation\bin\Debug\DashBoardWithAnimation.pdb
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.csproj.AssemblyReference.cache
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\MainWindow.g.cs
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\App.g.cs
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation_MarkupCompile.cache
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation_MarkupCompile.lref
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\MainWindow.baml
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.g.resources
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.Properties.Resources.resources
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.csproj.GenerateResource.cache
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.csproj.CoreCompileInputs.cache
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.exe
+D:\visual studio .net\DashBoardWithAnimation\obj\Debug\DashBoardWithAnimation.pdb

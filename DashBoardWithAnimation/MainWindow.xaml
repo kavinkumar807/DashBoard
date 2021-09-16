@@ -1,0 +1,218 @@
+﻿<Window x:Class="DashBoardWithAnimation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DashBoardWithAnimation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{x:Null}">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="White"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="White"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="White"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Foreground" Color="Black"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="White"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="White"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="White"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="White"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="White"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="White"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.MouseOver.Foreground}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="Storyboard1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFEBEBEB"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid4">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid5">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid6">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.9" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid7">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Rectangle Stroke="White" Width="900" Fill="#FFEAEAEA" RadiusX="18.08" RadiusY="18.08" Margin="0,30.952,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="519.048" VerticalAlignment="Center" Width="165" Margin="0,30.952,0,0" >
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,10,0,0">
+                <TextBlock Text="Stripe" TextAlignment="Center" TextWrapping="Wrap" Padding="0,5,0,0" FontSize="24" FontWeight="Bold" Foreground="#FF190691"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-home-24 (2).png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Home"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-initiate-money-transfer-24.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Payments"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-refund-24.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Reliance"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-download-graph-report-32.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Reports"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-user-24 (2).png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Customers"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-billing-24.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Billing"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-connect-32.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Connections"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="50" Width="165" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="icons8-source-code-24.png" Width="24" Margin="20,0,0,0"/>
+                    <Button Content="Developers"  Width="121.068" HorizontalAlignment="Right" HorizontalContentAlignment="Left" Padding="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource ButtonStyle1}" Foreground="#FFA3A3A3"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <Path Data="M334.44448,143.31502 L274.18963,163.61841 902.99318,162.01871 826.29273,143.62299 z" HorizontalAlignment="Left" Height="21.305" Margin="165,13.192,0,0" Stretch="Fill" Stroke="#FF190691" VerticalAlignment="Top" Width="629.8" Fill="#FF190691" >
+        </Path>
+        <Rectangle x:Name="rectangle1" RadiusX="8.08" RadiusY="8.08" HorizontalAlignment="Left" Height="3.545" Margin="230.4,30.952,0,0"  VerticalAlignment="Top" Width="483.2">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF190691" Offset="0"/>
+                    <GradientStop Color="#FF8185E0" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="38.503" RadiusY="5.08" RadiusX="5.08" VerticalAlignment="Top" Width="395.2" Margin="277.6,39.497,0,0" Fill="#FFEAEAEA"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="24" Source="icons8-search-30.png" Margin="287.2,47.497,0,0" Visibility="Hidden"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="38.503" Margin="332,39.497,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="340.8" Foreground="#FFA2A2A2" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" VerticalContentAlignment="Center" FontSize="14" Visibility="Hidden" />
+        <Grid x:Name="grid" Margin="254.4,100.6,556.4,395" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBox HorizontalAlignment="Left" Height="36.8" TextWrapping="Wrap" Text="$271" VerticalAlignment="Top" Width="84.8" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="24" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="17.6" Margin="6.6,36.8,0,0" TextWrapping="Wrap" Text="Last Transfer" VerticalAlignment="Top" Width="82.6" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="grid1" Margin="488.6,100.6,322.2,395" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBox HorizontalAlignment="Left" Height="36.8" TextWrapping="Wrap" Text="129" VerticalAlignment="Top" Width="84.8" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="24" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="17.6" Margin="6.6,36.8,0,0" TextWrapping="Wrap" Text=" Customers" VerticalAlignment="Top" Width="82.6" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="grid2" Margin="602,100.6,208.8,395" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBox HorizontalAlignment="Left" Height="36.8" TextWrapping="Wrap" Text="$125k" VerticalAlignment="Top" Width="84.8" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="24" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="17.6" Margin="6.6,36.8,0,0" TextWrapping="Wrap" Text="Total Volume" VerticalAlignment="Top" Width="82.6" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="grid3" Margin="370,100.6,440.8,395" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBox HorizontalAlignment="Left" Height="36.8" TextWrapping="Wrap" Text="$720" VerticalAlignment="Top" Width="84.8" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="24" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="17.6" Margin="6.6,36.8,0,0" TextWrapping="Wrap" Text="New Transfer" VerticalAlignment="Top" Width="82.6" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="grid4" Margin="252.9,170.4,210.3,203.6" Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Left" Height="176" RadiusY="8.08" RadiusX="8.08" VerticalAlignment="Top" Width="436.8" Fill="White"/>
+            <Image HorizontalAlignment="Left" Height="145.6" Margin="14.2,14.7,0,0" VerticalAlignment="Top" Width="411.7" Source="chart (1).png" Stretch="Fill"/>
+        </Grid>
+        <Grid x:Name="grid5" Margin="209.5,367.5,524.2,10" Visibility="Hidden">
+            <Rectangle Fill="#FFFFFCFC" HorizontalAlignment="Left" Height="172.5" RadiusY="18.08" RadiusX="18.08" Stroke="White" VerticalAlignment="Top" Width="166.3"/>
+            <Image HorizontalAlignment="Left" Height="152.5" Margin="10,10,0,0" VerticalAlignment="Top" Width="146.3" Source="browser-market-shares-in.png" Stretch="Fill"/>
+        </Grid>
+        <Grid x:Name="grid6" Margin="410.5,367.5,323.2,10" Visibility="Hidden">
+            <Rectangle Fill="#FFFFFCFC" HorizontalAlignment="Left" Height="172.5" RadiusY="18.08" RadiusX="18.08" Stroke="White" VerticalAlignment="Top" Width="166.3"/>
+            <Image HorizontalAlignment="Left" Height="152.5" Margin="10,10,0,0" VerticalAlignment="Top" Width="146.3" Source="browser-market-shares-in.png" Stretch="Fill"/>
+        </Grid>
+        <Grid x:Name="grid7" Margin="606.5,367.5,127.2,10" Visibility="Hidden">
+            <Rectangle Fill="#FFFFFCFC" HorizontalAlignment="Left" Height="172.5" RadiusY="18.08" RadiusX="18.08" Stroke="White" VerticalAlignment="Top" Width="166.3"/>
+            <Image HorizontalAlignment="Left" Height="152.5" Margin="10,10,0,0" VerticalAlignment="Top" Width="146.3" Source="browser-market-shares-in.png" Stretch="Fill"/>
+        </Grid>
+
+    </Grid>
+</Window>
