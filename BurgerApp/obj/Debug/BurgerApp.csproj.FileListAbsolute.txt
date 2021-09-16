@@ -1,0 +1,12 @@
+D:\visual studio .net\BurgerApp\bin\Debug\BurgerApp.exe.config
+D:\visual studio .net\BurgerApp\bin\Debug\BurgerApp.exe
+D:\visual studio .net\BurgerApp\bin\Debug\BurgerApp.pdb
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.csproj.AssemblyReference.cache
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.Form1.resources
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.Properties.Resources.resources
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.csproj.GenerateResource.cache
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.csproj.CoreCompileInputs.cache
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.exe
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.pdb
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.FirstCustomControl.resources
+D:\visual studio .net\BurgerApp\obj\Debug\BurgerApp.SecondCustomControl.resources
